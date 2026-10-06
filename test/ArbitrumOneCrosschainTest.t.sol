@@ -30,7 +30,7 @@ contract ArbitrumOneCrosschainTest is CrosschainTestBase {
         remote.selectFork();
         bridgeReceiver = address(new ArbitrumReceiver(
             defaultL2BridgeExecutorArgs.ethereumGovernanceExecutor,
-            vm.computeCreateAddress(address(this), 4)
+            vm.computeCreateAddress(address(this), vm.getNonce(address(this)) + 1)
         ));
 
         mainnet.selectFork();
